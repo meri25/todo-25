@@ -1,0 +1,19 @@
+{
+  "name": "todo-25",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meri25/todo-25.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meri25/todo-25/issues"
+  },
+  "homepage": "https://github.com/meri25/todo-25#readme"
+}
