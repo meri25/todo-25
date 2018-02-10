@@ -10,7 +10,7 @@ const assert = require('assert');
 
 MongoClient.connect(MONGO_URI, (err, db) => {
     assert.equal(null, err);
-    console.log("Connected successfully to server");
+    console.log("Connected successfully to server.");
     db.close();
 })
 
