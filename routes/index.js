@@ -6,7 +6,7 @@ const MONGO_URI = process.env.MONGODB_URI;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: MONGO_URI });
+  res.render('index');
   //res.render('main');
 });
 
