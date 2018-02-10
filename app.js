@@ -15,7 +15,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // // db setup
-// const MongoClient = require('mongodb').MongoClient;
+//const MongoClient = require('mongodb').MongoClient;
+//console.log('get client db');
+
+
+
 // const assert = require('assert');
 // const MONGO_URI = process.env.MONGODB_URI;
 
