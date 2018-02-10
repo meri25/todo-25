@@ -14,15 +14,15 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// db setup
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
-const MONGO_URI = process.env.MONGODB_URI;
+// // db setup
+// const MongoClient = require('mongodb').MongoClient;
+// const assert = require('assert');
+// const MONGO_URI = process.env.MONGODB_URI;
 
-MongoClient.connect(MONGO_URI, (error, db)=>{
-  console.log("connecting to mongoDB");
-  db.close()
-});
+// MongoClient.connect(MONGO_URI, (error, db)=>{
+//   console.log("connecting to mongoDB");
+//   db.close();
+// });
 
 
 // uncomment after placing your favicon in /public
