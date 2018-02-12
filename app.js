@@ -26,7 +26,7 @@ app.set('view engine', 'jade');
 
 process.on('unhandledRejection', console.dir);
 var mongoose = require('mongoose');
-var MONGO_URI = process.env.MONGODB_URI || 'mongo://localhost/';
+var MONGO_URI = process.env.MONGODB_URI;
 mongoose.connect(MONGO_URI, function(err){
   if(err){
     console.log(err);
