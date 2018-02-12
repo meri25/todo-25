@@ -7,7 +7,7 @@ var router = express.Router();
 // var db = mongoose.connect(uristring);
 
 // var mongoose = require('mongoose');
-// var MONGO_URI = process.env.MONGODB_URI || 'mongo://localhost/';
+var MONGO_URI = process.env.MONGODB_URI || 'mongo://localhost/';
 
 // process.on('unhandledRejection', console.dir);
 // mongoose.connect(MONGO_URI);
@@ -32,7 +32,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('index', {title: MONGO_URI});
   //res.render('main');
   
 });
