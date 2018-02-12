@@ -24,16 +24,7 @@ app.set('view engine', 'jade');
 //   db.close();
 // });
 
-process.on('unhandledRejection', console.dir);
-var mongoose = require('mongoose');
-var MONGO_URI = process.env.MONGODB_URI;
-mongoose.connect(MONGO_URI, function(err){
-  if(err){
-    console.log(err);
-  }else{
-    console.log("success")
-  }
-});
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

@@ -8,7 +8,16 @@ var router = express.Router();
 
 // var mongoose = require('mongoose');
 var MONGO_URI = process.env.MONGODB_URI || 'mongo://localhost/';
-
+process.on('unhandledRejection', console.dir);
+var mongoose = require('mongoose');
+var MONGO_URI = process.env.MONGODB_URI;
+mongoose.connect(MONGO_URI, function(err){
+  if(err){
+    res.render('index', {dbStatus: err});
+  }else{
+    res.render('index', {dbStatus:'success'});
+  }
+});
 // process.on('unhandledRejection', console.dir);
 // mongoose.connect(MONGO_URI);
 
@@ -32,7 +41,7 @@ var MONGO_URI = process.env.MONGODB_URI || 'mongo://localhost/';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {title: MONGO_URI});
+  res.render('index', {MONGO_URI: MONGO_URI});
   //res.render('main');
   
 });
