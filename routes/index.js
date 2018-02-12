@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 // var mongoose = require('mongoose');
+// var uristring = 'mongodb://localhost/';
+
+// var db = mongoose.connect(uristring);
+
+// var mongoose = require('mongoose');
 // var MONGO_URI = process.env.MONGODB_URI || 'mongo://localhost/';
 
 // process.on('unhandledRejection', console.dir);
@@ -29,6 +34,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index');
   //res.render('main');
+  
 });
 
 module.exports = router;
