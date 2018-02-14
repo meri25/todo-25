@@ -71,6 +71,9 @@ router.get('/index', function(req, res, nexr){
     case "update":
       res.send(lastData());
       break;
+    case "delete":
+      res.send(deleteStatus(req.query.id));
+      break;
   }
   
 });
@@ -112,6 +115,22 @@ function saveStatus(req){
   var jsonFile = fs.readFileSync('todo.json', 'utf8'); //get file
   var datas = JSON.parse(jsonFile || "null");   
   datas[req]['status'] = 'done';
+  fs.writeFile('todo.json', JSON.stringify(datas), (err) => {
+    if(err){
+      console.log('failed to write');
+      throw err;
+    }else{
+      console.log('success done!');
+    }
+  });
+  return JSON.stringify(datas);
+}
+
+function deleteStatus(req){
+  var fs = require('fs');
+  var jsonFile = fs.readFileSync('todo.json', 'utf8'); //get file
+  var datas = JSON.parse(jsonFile || "null");   
+  datas[req]['status'] = 'deleted';
   fs.writeFile('todo.json', JSON.stringify(datas), (err) => {
     if(err){
       console.log('failed to write');

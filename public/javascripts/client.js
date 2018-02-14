@@ -20,6 +20,15 @@ $(document).ready(function(){
     changeStatus(id[0]);
   });
 
+  $(document).on('click','[id^=dlt-]', function() {
+    console.log('click!');
+    var id = $(this).attr('id');
+    console.log("ID:"+id);
+    var id = id.match(/\d*\d/);
+    console.log(id[0]);
+    deleteData(id[0]);
+  });
+
 
 });
 
@@ -64,11 +73,16 @@ function createDom(datas){
   for(var i=1; i<datas.length; i++){
     var ul = document.getElementById('list-ul');
     var li = document.createElement('li');
-    var btn= document.createElement('button');
+    var btn = document.createElement('button');
+    var dlt = document.createElement('button');
     var p = document.createElement('p');
     var data = datas[i];
     li.id = "list-"+data.id;
     btn.id = "btn-"+data.id;
+    dlt.id = "dlt-"+data.id;
+    // btn.classList.add('list-btns');
+    // dlt.classList.add('list-btns');
+    dlt.innerHTML = 'delet';
     p.innerHTML = data.text;
 
     console.log(data.status);
@@ -79,13 +93,14 @@ function createDom(datas){
        break;
      case "done":
        btn.innerHTML = data.status;
-       btn.style.backgroundColor = "#dd4b39";
        break;
      case "deleted":
+       continue;
        break;
    }
    
     li.appendChild(btn);
+    li.appendChild(dlt);
     li.appendChild(p);
     ul.appendChild(li);
   }
@@ -93,6 +108,29 @@ function createDom(datas){
 
  function changeStatus(id){
   var data = {'status': 'change', 'id': id};
+  $.ajax({
+    type: "get",
+    url: "/index",
+    dataType: "json",
+    data: data,
+    scriptCharset: "utf-8"
+  }).done(function(res, textStatus, xhr){
+    console.log(res);
+    console.log(textStatus);
+    clearDoms();
+    createDom(res);
+  }).fail(function(xhr, textStatus, errorThrown){
+    console.log(errorThrown);
+  });
+ }
+
+ function clearDoms(){
+  var ul = document.getElementById('list-ul');
+  while (ul.firstChild) ul.removeChild(ul.firstChild);
+ }
+
+ function deleteData(id){
+  var data = {'status': 'delete', 'id': id};
   $.ajax({
     type: "get",
     url: "/index",

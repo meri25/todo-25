@@ -1,1 +1,1 @@
-[{"id":0,"text":"what you do","status":"status"},{"id":1,"text":"STUDY","status":"do"},{"id":2,"text":"TEST","status":"done"},{"id":3,"text":"JOB","status":"do"}]
+[{"id":0,"text":"what you do","status":"status"},{"id":1,"text":"STUDY","status":"deleted"},{"id":2,"text":"TEST","status":"deleted"},{"id":3,"text":"JOB","status":"done"},{"id":4,"text":"WORK","status":"do"},{"id":5,"text":"BUY APPLE","status":"deleted"},{"id":6,"text":"SEND EMAIL","status":"done"}]
