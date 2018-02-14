@@ -63,12 +63,23 @@ router.get('/index', function(req, res, nexr){
       }
       break;
 
-    case "cheak":
-      console.log(req.query.status);
+    case "change":
+      console.log('case:change');
+      console.log(req.query.id);
+      res.send(saveStatus(req.query.id));
+      break;
+    case "update":
+      res.send(lastData());
       break;
   }
   
 });
+
+function lastData(){
+  var fs = require('fs');
+  var jsonFile = fs.readFileSync('todo.json', 'utf8'); //get file
+  return jsonFile;
+}
 
 /* json */
 function saveData(req){
@@ -97,7 +108,19 @@ function saveData(req){
 }
 
 function saveStatus(req){
-  
+  var fs = require('fs');
+  var jsonFile = fs.readFileSync('todo.json', 'utf8'); //get file
+  var datas = JSON.parse(jsonFile || "null");   
+  datas[req]['status'] = 'done';
+  fs.writeFile('todo.json', JSON.stringify(datas), (err) => {
+    if(err){
+      console.log('failed to write');
+      throw err;
+    }else{
+      console.log('success done!');
+    }
+  });
+  return JSON.stringify(datas);
 }
 
 module.exports = router;

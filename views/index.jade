@@ -2,17 +2,16 @@ extends layout
 
 block content
   #content
-    p this is content area
     form(action="/index" method="GET")
-      input(name="text", type="text" placeholder="enter what you do")
-      button#button-add(type="submit", value="") add
+      p.form-contents#form-message WHAT YOU WANT TO DO
+      p.form-contents
+        input(name="text", type="text" placeholder="enter what you do")
+      p.form-contents  
+        button#button-add(type="submit", value="") add
     
     #list
-      ui#list-ui
-        li#list-0
-          button#button-0(type="submit") do
-          p what you do
-
+      button#update(type="submit") update!
+      ul#list-ul
 
 
 block console
