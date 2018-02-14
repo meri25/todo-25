@@ -14,16 +14,19 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// // db setup
-//const MongoClient = require('mongodb').MongoClient;
-//console.log('get client db');
+// db setup
+// const MongoClient = require('mongodb').MongoClient;
+// console.log('get client db');
 // const assert = require('assert');
 // const MONGO_URI = process.env.MONGODB_URI;
+// console.log(MONGO_URI);
 // MongoClient.connect(MONGO_URI, (error, db)=>{
 //   console.log("connecting to mongoDB");
 //   db.close();
 // });
 
+app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 
 // uncomment after placing your favicon in /public
@@ -54,5 +57,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

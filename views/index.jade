@@ -3,10 +3,19 @@ extends layout
 block content
   #content
     p this is content area
-  
+    form(action="/index" method="GET")
+      input(name="text", type="text" placeholder="enter what you do")
+      button#button-add(type="submit", value="") add
+    
+    #list
+      ui#list-ui
+        li#list-0
+          button#button-0(type="submit") do
+          p what you do
+
 
 
 block console
   #console
-      p= MONGO_URI
-      p= dbStatus
+    p= MONGO_URI
+    p= formStatus
